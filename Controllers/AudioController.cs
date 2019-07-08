@@ -27,6 +27,10 @@ namespace TestTaskHeedbook.Controllers
             var dir = workingPath
                 + "Audios"
                 + Path.DirectorySeparatorChar;
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
             var pathToWav = dir + fileNameWithoutExtension + ".wav";
             _ffmpeg.GetAudioFromVideo(path, pathToWav);
 

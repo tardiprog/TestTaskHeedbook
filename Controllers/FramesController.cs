@@ -27,6 +27,10 @@ namespace TestTaskHeedbook.Controllers
             var dir = workingPath
                 + "Frames"
                 + Path.DirectorySeparatorChar;
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
             _ffmpeg.GetFrameFromVideo(path, dir + fileNameWithoutExt + "_%03d.jpg");
 
         }
